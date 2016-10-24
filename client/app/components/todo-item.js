@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  tagName: 'li',
+
   init() {
     this._super(...arguments);
     this.set('isEditing', false);
