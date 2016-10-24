@@ -20,6 +20,10 @@ export default Ember.Component.extend({
       todo.save();
     },
 
+    remove(todo) {
+      todo.destroyRecord();
+    },
+
     toggleDone(todo) {
       todo.toggleProperty('done');
       todo.save();

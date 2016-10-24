@@ -6,5 +6,6 @@
   <div class='field'>
     <input type='checkbox' checked={{todo.done}} onchange={{action 'toggleDone' todo}}>
     <label {{action 'edit' on='doubleClick'}}>{{todo.description}}</label>
+    <button {{action 'remove' todo}} class="ui mini button remove">x</button>
   </div>
 {{/if}}

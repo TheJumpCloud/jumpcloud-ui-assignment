@@ -16,11 +16,3 @@ test('renders todos', function(assert) {
   this.render(hbs`{{todos-route todos=todos}}`);
   assert.equal(this.$('.segment').length, 2, 'it renders all the todos');
 });
-
-test('create todo', function(assert) {
-  this.set('todos', todos);
-  this.set('createTodo', () => {
-    assert.ok("called createTodo");
-  });
-  this.render(hbs`{{todos-route todos=todos createTodo=createTodo}}`);
-});

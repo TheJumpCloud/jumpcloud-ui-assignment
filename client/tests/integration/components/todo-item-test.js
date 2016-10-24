@@ -24,7 +24,7 @@ test('clicking done checkbox triggers a save', function(assert) {
   this.set('todo', todo);
   this.render(hbs`{{todo-item todo=todo}}`);
 
-  assert.equal(this.$().text().trim(), 'My todo', 'description renders as a label');
+  assert.equal(this.$('label').text().trim(), 'My todo', 'description renders as a label');
   assert.notOk(todo.get('isSaving'), 'todo is not saving before click');
 
   Ember.run(() => {
