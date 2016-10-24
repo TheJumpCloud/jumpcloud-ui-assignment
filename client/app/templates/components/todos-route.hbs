@@ -1,7 +1,9 @@
-{{input class='new-todo' type="text" placeholder="Add a todo" value=newTodoDescription enter='createTodo'}}
+<div class="ui fluid input">
+  {{input class='new-todo' type="text" placeholder="Add a todo" value=newTodoDescription enter='createTodo'}}
+</div>
 
-<ul>
+<div class='ui segments'>
   {{#each todos as |todo|}}
     {{todo-item todo=todo}}
   {{/each}}
-</ul>
+</div>

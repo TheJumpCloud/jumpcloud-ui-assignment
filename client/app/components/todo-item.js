@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  tagName: 'li',
+  classNames: ['ui', 'segment'],
+  classNameBindings: ['todo.done'],
 
   init() {
     this._super(...arguments);

@@ -3,6 +3,8 @@
       focus-out=(action 'save' todo)
       insert-newline=(action 'save' todo)}}
 {{else}}
-  <input type='checkbox' checked={{todo.done}} class='toggle' onchange={{action 'toggleDone' todo}}>
-  <label {{action 'edit' on='doubleClick'}}>{{todo.description}}</label>
+  <div class='field'>
+    <input type='checkbox' checked={{todo.done}} onchange={{action 'toggleDone' todo}}>
+    <label {{action 'edit' on='doubleClick'}}>{{todo.description}}</label>
+  </div>
 {{/if}}
