@@ -1,8 +1,8 @@
 import { moduleForModel, test } from 'ember-qunit';
 
-moduleForModel('adapter', 'Unit | Serializer | adapter', {
+moduleForModel('adapter', 'Unit | Serializer | application', {
   // Specify the other units that are required for this test.
-  needs: ['serializer:adapter']
+  needs: ['serializer:application']
 });
 
 // Replace this with your real tests.
