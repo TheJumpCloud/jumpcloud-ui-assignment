@@ -42,7 +42,7 @@ module.exports = function(todos) {
           throw 'A valid description must be given';
         }
         // get a new ID (would be handled by proepr DB automatically)
-        var id = Math.max.apply(null, _.pluck(todos, 'id')) + 1;
+        var id = todos.length ? Math.max.apply(null, _.pluck(todos, 'id')) + 1 : 1;
         var todo = {
           id: id,
           done: req.body.done || false,
