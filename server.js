@@ -7,6 +7,19 @@ var
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 
+app.use(function(req, res, next) {
+  var whitelist = [
+    'http://localhost:8080',
+  ];
+  var origin = req.headers.origin;
+  if(whitelist.indexOf(origin) > -1){
+    res.setHeader('Access-Control-Allow-Origin', origin);
+  }
+  res.header('Access-Control-Allow-Methods', 'GET, OPTIONS, PUT, POST, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  return next();
+});
+
 var data = {
   todos: require('./data/todos')
 };
