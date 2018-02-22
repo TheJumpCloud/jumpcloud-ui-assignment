@@ -1,0 +1,27 @@
+import { Injectable } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
+import { HttpClient } from '@angular/common/http';
+
+import { Todo } from './models/todo';
+
+@Injectable()
+export class TodoService {
+  private apiBaseUrl = 'http://localhost:8004/api/todos/';
+
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  getTodos(): Promise<Todo[]> {
+    return this.http.get<Todo[]>(this.apiBaseUrl).toPromise();
+  }
+
+  setTodoDone(todo: Todo, done: boolean): Promise<Todo> {
+    return this.http.put<Todo>(
+      this.apiBaseUrl + `${todo.id}/`,
+      {
+        "done": done
+      }
+    ).toPromise();
+  }
+}
