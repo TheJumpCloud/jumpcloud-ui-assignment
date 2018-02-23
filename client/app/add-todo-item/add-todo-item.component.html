@@ -1,0 +1,29 @@
+<ul class="list-group mb-3">
+  <li class="list-group-item">
+    <form
+      class="todo-item__form"
+      [ngClass]="{
+        'todo-item__form--updating': !isEditable,
+        'todo-item__form--error': hasError
+      }"
+    >
+      <input
+        #newDescriptionInput
+        type="text"
+        name="description"
+        placeholder="Add item..."
+        [(ngModel)]="description"
+        [disabled]="!isEditable"
+        (keydown.enter)="addItem()"
+      >
+      <button
+        class="btn btn-link btn-sm"
+        (click)="addItem()"
+        [disabled]="!isEditable"
+        type="button"
+      >
+        Save
+      </button>
+    </form>
+  </li>
+</ul>

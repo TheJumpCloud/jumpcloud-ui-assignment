@@ -1,3 +1,7 @@
+<app-add-todo-item
+  (created)="addTodo($event)"
+></app-add-todo-item>
+
 <ul
   *ngIf="!finishedLoading"
   class="list-group"

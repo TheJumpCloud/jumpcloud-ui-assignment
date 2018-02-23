@@ -37,4 +37,13 @@ export class TodoService {
   deleteTodo(todo: Todo): Promise<boolean> {
     return this.http.delete<boolean>(this.apiBaseUrl + `${todo.id}/`).toPromise();
   }
+
+  createTodo(description: string): Promise<Todo> {
+    return this.http.post<Todo>(
+      this.apiBaseUrl,
+      {
+        "description": description
+      }
+    ).toPromise();
+  }
 }

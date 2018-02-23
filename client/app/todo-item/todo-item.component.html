@@ -10,11 +10,11 @@
     {{ todo.done ? 'Done' : 'Open' }}
   </button>
   <input
+    #descriptionInput
     type="text"
     name="description"
     [(ngModel)]="description"
     [disabled]="!isEditable"
-    [autofocus]="isEditable"
     (keydown.enter)="saveDescription()"
   >
   <button

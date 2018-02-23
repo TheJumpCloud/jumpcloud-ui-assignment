@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef, Renderer } from '@angular/core';
 
 import { TodoService } from '../todo.service';
 import { Todo } from '../models/todo';
@@ -12,12 +12,14 @@ export class TodoItemComponent implements OnInit {
   @Input() todo: Todo;
   @Output() update = new EventEmitter<Todo>();
   @Output() delete = new EventEmitter<Todo>();
+  @ViewChild('descriptionInput') input: ElementRef;
   isUpdating = false;
   isEditable = false;
   description = '';
 
   constructor(
-      private todoService: TodoService
+      private todoService: TodoService,
+      private renderer: Renderer
   ) { }
 
   ngOnInit() {
@@ -34,6 +36,11 @@ export class TodoItemComponent implements OnInit {
 
   editDescription = () => {
     this.isEditable = true;
+    // Wait until input becomes editable again before highlighting.
+    setTimeout(() => {
+      console.log(this.input);
+      this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
+    }, 5);
   }
 
   saveDescription = () => {
