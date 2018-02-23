@@ -13,7 +13,6 @@ export class AddTodoItemComponent {
   @ViewChild('newDescriptionInput') input: ElementRef;
   isEditable = true;
   description = '';
-  hasError = false;
 
   constructor(
       private todoService: TodoService,
@@ -21,24 +20,24 @@ export class AddTodoItemComponent {
   ) { }
 
   addItem = () => {
+    if (!this.description) {
+      return;
+    }
+
     let reenableInput = () => {
       this.isEditable = true;
       setTimeout(() => {
-        console.log(this.input);
         this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
       }, 5);
     };
 
     this.isEditable = false;
-    this.hasError = false;
     this.todoService.createTodo(this.description).then((newTodo) => {
       this.created.emit(newTodo);
       this.description = '';
       reenableInput();
     }).catch((error) => {
-      this.hasError = true;
       reenableInput();
-      console.log(error);
     });
   }
 

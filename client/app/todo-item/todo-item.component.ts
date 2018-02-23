@@ -38,7 +38,6 @@ export class TodoItemComponent implements OnInit {
     this.isEditable = true;
     // Wait until input becomes editable again before highlighting.
     setTimeout(() => {
-      console.log(this.input);
       this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     }, 5);
   }
@@ -51,7 +50,6 @@ export class TodoItemComponent implements OnInit {
       this.isUpdating = false;
     }).catch((error) => {
       this.isEditable = true;
-      console.log(error);
     });
   }
 

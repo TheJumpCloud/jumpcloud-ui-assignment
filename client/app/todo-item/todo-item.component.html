@@ -9,14 +9,23 @@
   >
     {{ todo.done ? 'Done' : 'Open' }}
   </button>
-  <input
-    #descriptionInput
-    type="text"
-    name="description"
-    [(ngModel)]="description"
-    [disabled]="!isEditable"
-    (keydown.enter)="saveDescription()"
-  >
+  <div class="todo-item__input-container">
+    <div
+      *ngIf="!isEditable"
+      class="todo-item__input-mask"
+      (dblclick)="editDescription()"
+    ></div>
+    <input
+      #descriptionInput
+      class="todo-item__input"
+      [ngClass]="{'todo-item__input--disabled': !isEditable}"
+      type="text"
+      name="description"
+      [(ngModel)]="description"
+      [disabled]="!isEditable"
+      (keydown.enter)="saveDescription()"
+    >
+  </div>
   <button
     *ngIf="!isEditable"
     class="btn btn-link btn-sm"

@@ -1,0 +1,19 @@
+.todo-item__form {
+  display: flex;
+}
+
+.todo-item__input-container {
+  position: relative;
+}
+
+.todo-item__input-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.todo-item__input--disabled {
+  border-color: transparent;
+}
