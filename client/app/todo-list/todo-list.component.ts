@@ -28,4 +28,9 @@ export class TodoListComponent implements OnInit {
     const index = this.todos.findIndex((t) => t.id === todo.id);
     this.todos[index] = todo;
   }
+
+  deleteTodo = (todo: Todo) => {
+    const index = this.todos.findIndex((t) => t.id === todo.id);
+    this.todos = this.todos.slice(0, index).concat(this.todos.slice(index + 1));
+  }
 }

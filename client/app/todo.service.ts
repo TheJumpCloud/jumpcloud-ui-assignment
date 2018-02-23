@@ -24,4 +24,17 @@ export class TodoService {
       }
     ).toPromise();
   }
+
+  setTodoDescription(todo: Todo, description: string): Promise<Todo> {
+    return this.http.put<Todo>(
+      this.apiBaseUrl + `${todo.id}/`,
+      {
+        "description": description
+      }
+    ).toPromise();
+  }
+
+  deleteTodo(todo: Todo): Promise<boolean> {
+    return this.http.delete<boolean>(this.apiBaseUrl + `${todo.id}/`).toPromise();
+  }
 }

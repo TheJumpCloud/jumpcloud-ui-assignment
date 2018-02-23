@@ -2,19 +2,42 @@
   class="todo-item__form"
   [ngClass]="{'todo-item__form--updating': isUpdating}"
 >
-  <div class="form-check">
-    <button
-      class="fake-checkbox"
-      (click)="toggleCheckbox()"
-      type="button"
-    >
-      Toggle: {{ todo.done }}
-    </button>
-    {{ isUpdating }}
-    <input
-      type="text"
-      value="{{ todo.description }}"
-      disabled
-    >
-  </div>
+  <button
+    class="fake-checkbox"
+    (click)="toggleCheckbox()"
+    type="button"
+  >
+    {{ todo.done ? 'Done' : 'Open' }}
+  </button>
+  <input
+    type="text"
+    name="description"
+    [(ngModel)]="description"
+    [disabled]="!isEditable"
+    [autofocus]="isEditable"
+    (keydown.enter)="saveDescription()"
+  >
+  <button
+    *ngIf="!isEditable"
+    class="btn btn-link btn-sm"
+    (click)="editDescription()"
+    type="button"
+  >
+    Edit
+  </button>
+  <button
+    *ngIf="isEditable"
+    class="btn btn-link btn-sm"
+    (click)="saveDescription()"
+    type="button"
+  >
+    Save
+  </button>
+  <button
+    class="btn btn-link btn-sm"
+    (click)="deleteTodo()"
+    type="button"
+  >
+    Delete
+  </button>
 </form>
