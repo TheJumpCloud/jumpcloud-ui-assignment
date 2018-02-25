@@ -6,6 +6,7 @@
     >
       <input
         #newDescriptionInput
+        class="todo-item__add"
         type="text"
         name="description"
         placeholder="Add item..."
@@ -13,14 +14,11 @@
         [disabled]="!isEditable"
         (keydown.enter)="addItem()"
       >
-      <button
-        class="btn btn-link btn-sm"
+      <fa
+        class="todo-item__add-icon"
+        name="plus"
         (click)="addItem()"
-        [disabled]="!isEditable"
-        type="button"
-      >
-        Save
-      </button>
+      ></fa>
     </form>
   </li>
 </ul>

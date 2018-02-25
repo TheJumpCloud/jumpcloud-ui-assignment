@@ -10,10 +10,12 @@
   >
     <fa
       *ngIf="!todo.done"
+      class="todo-item__check-icon"
       name="square-o"
     ></fa>
     <fa
       *ngIf="todo.done"
+      class="todo-item__check-icon"
       name="check-square-o"
     ></fa>
   </button>
@@ -26,9 +28,13 @@
     <input
       #descriptionInput
       class="todo-item__input"
-      [ngClass]="{'todo-item__input--disabled': !isEditable}"
+      [ngClass]="{
+        'todo-item__input--disabled': !isEditable,
+        'todo-item__input--complete': !isEditable && todo.done
+      }"
       type="text"
       name="description"
+      placeholder="Add description..."
       [(ngModel)]="description"
       [disabled]="!isEditable"
       (keydown.enter)="saveDescription()"
@@ -39,31 +45,25 @@
     class="btn btn-sm extra-button"
     (click)="editDescription()"
     type="button"
+    title="Edit description"
   >
-    <fa
-      name="pencil"
-
-    ></fa>
+    <fa name="pencil"></fa>
   </button>
   <button
     *ngIf="isEditable"
     class="btn btn-sm extra-button"
     (click)="saveDescription()"
     type="button"
+    title="Save changes"
   >
-    <fa
-      name="check"
-
-    ></fa>
+    <fa name="check"></fa>
   </button>
   <button
     class="btn btn-sm extra-button"
     (click)="deleteTodo()"
     type="button"
+    title="Delete item"
   >
-    <fa
-      name="trash"
-
-    ></fa>
+    <fa name="trash"></fa>
   </button>
 </form>

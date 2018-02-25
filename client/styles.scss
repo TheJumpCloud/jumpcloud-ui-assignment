@@ -6,14 +6,12 @@ body {
   background-color: #f5f5f5;
 }
 
-/* Define container layout. */
-.set-root-maxwidth {
-  display: block;
-  max-width: 768px;
-}
-
 /* Animation used repeatedly. */
 @keyframes fade-in {
   0%   { opacity: 0; }
   100% { opacity: 1; }
+}
+
+input::placeholder {
+  color: #bbb;
 }

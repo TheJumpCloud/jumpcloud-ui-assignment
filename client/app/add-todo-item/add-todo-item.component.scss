@@ -1,0 +1,28 @@
+.todo-item__form {
+  display: flex;
+  position: relative;
+}
+
+.todo-item__add {
+  border: none;
+  color: #111;
+  margin: 2px 0;
+  outline: none;
+  padding: 1px 0 1px 31px;
+  width: 100%;
+}
+
+.todo-item__add-icon {
+  transition: color .1s linear;
+  position: absolute;
+  height: 100%;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  padding: 3px;
+}
+
+/* Style the icon to match the color of the placeholder text. */
+.todo-item__add:placeholder-shown + .todo-item__add-icon{
+  color: #bbb;
+}

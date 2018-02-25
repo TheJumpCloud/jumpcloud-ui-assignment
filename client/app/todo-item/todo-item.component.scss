@@ -30,6 +30,10 @@
   border-color: transparent;
 }
 
+.todo-item__input--complete {
+  text-decoration: line-through;
+}
+
 .fake-checkbox {
   -webkit-appearance: none;
   -appearance: none;
@@ -46,10 +50,10 @@
   &:focus {
     opacity: .6;
   }
+}
 
-  fa {
-    font-size: 20px;
-  }
+.todo-item__check-icon {
+  font-size: 20px;
 }
 
 .extra-button {
