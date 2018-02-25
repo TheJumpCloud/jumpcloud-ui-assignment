@@ -19,22 +19,24 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.todoService.getTodos().then((todos) => {
-      this.todos = todos;
+      // On first load, flip the order of received items. This
+      // ensures that the render in the order originally inserted.
+      this.todos = todos.reverse();
       this.finishedLoading = true;
     });
   }
 
   updateTodo = (todo: Todo) => {
     const index = this.todos.findIndex((t) => t.id === todo.id);
-    this.todos[index] = todo;
+    Object.assign(this.todos[index], todo);
   }
 
   deleteTodo = (todo: Todo) => {
     const index = this.todos.findIndex((t) => t.id === todo.id);
-    this.todos = this.todos.slice(0, index).concat(this.todos.slice(index + 1));
+    this.todos.splice(index, 1);
   }
 
   addTodo = (todo: Todo) => {
-    this.todos = [todo].concat(this.todos);
+    this.todos.unshift(todo);
   }
 }

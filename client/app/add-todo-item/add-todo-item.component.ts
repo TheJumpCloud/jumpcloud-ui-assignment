@@ -15,9 +15,9 @@ export class AddTodoItemComponent {
   description = '';
 
   constructor(
-      private todoService: TodoService,
-      private renderer: Renderer
-  ) { }
+    private renderer: Renderer,
+    private todoService: TodoService
+  ) {}
 
   addItem = () => {
     if (!this.description) {
@@ -26,6 +26,7 @@ export class AddTodoItemComponent {
 
     let reenableInput = () => {
       this.isEditable = true;
+      // Need to wait a digest cycle before trying to re-focus input.
       setTimeout(() => {
         this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
       }, 5);
@@ -39,6 +40,7 @@ export class AddTodoItemComponent {
     }).catch((error) => {
       reenableInput();
     });
+    // Would use finally here, but it doens't seem to be supported with
+    // this version of Promise<>.
   }
-
 }

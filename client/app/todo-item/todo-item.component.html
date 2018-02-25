@@ -5,6 +5,7 @@
 >
   <button
     class="fake-checkbox"
+    [ngClass]="{'fake-checkbox--complete': !isEditable && todo.done}"
     (click)="toggleCheckbox()"
     type="button"
   >
