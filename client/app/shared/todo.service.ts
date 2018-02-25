@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
 import { HttpClient } from '@angular/common/http';
 
-import { Todo } from './models/todo';
+import { Todo } from './todo.model';
 
 @Injectable()
 export class TodoService {
