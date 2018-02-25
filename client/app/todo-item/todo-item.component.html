@@ -1,4 +1,5 @@
 <form
+  autocomplete="false"
   class="todo-item__form"
   [ngClass]="{'todo-item__form--updating': isUpdating}"
 >
@@ -7,7 +8,14 @@
     (click)="toggleCheckbox()"
     type="button"
   >
-    {{ todo.done ? 'Done' : 'Open' }}
+    <fa
+      *ngIf="!todo.done"
+      name="square-o"
+    ></fa>
+    <fa
+      *ngIf="todo.done"
+      name="check-square-o"
+    ></fa>
   </button>
   <div class="todo-item__input-container">
     <div
@@ -28,25 +36,34 @@
   </div>
   <button
     *ngIf="!isEditable"
-    class="btn btn-link btn-sm"
+    class="btn btn-sm extra-button"
     (click)="editDescription()"
     type="button"
   >
-    Edit
+    <fa
+      name="pencil"
+
+    ></fa>
   </button>
   <button
     *ngIf="isEditable"
-    class="btn btn-link btn-sm"
+    class="btn btn-sm extra-button"
     (click)="saveDescription()"
     type="button"
   >
-    Save
+    <fa
+      name="check"
+
+    ></fa>
   </button>
   <button
-    class="btn btn-link btn-sm"
+    class="btn btn-sm extra-button"
     (click)="deleteTodo()"
     type="button"
   >
-    Delete
+    <fa
+      name="trash"
+
+    ></fa>
   </button>
 </form>

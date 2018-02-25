@@ -6,7 +6,7 @@ import { Todo } from '../models/todo';
 @Component({
   selector: 'app-add-todo-item',
   templateUrl: './add-todo-item.component.html',
-  styleUrls: ['./add-todo-item.component.css']
+  styleUrls: ['./add-todo-item.component.scss']
 })
 export class AddTodoItemComponent {
   @Output() created = new EventEmitter<Todo>();
