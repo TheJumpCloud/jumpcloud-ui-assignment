@@ -1,0 +1,70 @@
+<form
+  autocomplete="false"
+  class="todo-item__form"
+  [ngClass]="{'todo-item__form--updating': isUpdating}"
+>
+  <button
+    class="fake-checkbox"
+    [ngClass]="{'fake-checkbox--complete': !isEditable && todo.done}"
+    (click)="toggleCheckbox()"
+    type="button"
+  >
+    <fa
+      *ngIf="!todo.done"
+      class="todo-item__check-icon"
+      name="square-o"
+    ></fa>
+    <fa
+      *ngIf="todo.done"
+      class="todo-item__check-icon"
+      name="check-square-o"
+    ></fa>
+  </button>
+  <div class="todo-item__input-container">
+    <div
+      *ngIf="!isEditable"
+      class="todo-item__input-mask"
+      (dblclick)="editDescription()"
+    ></div>
+    <input
+      #descriptionInput
+      class="todo-item__input"
+      [ngClass]="{
+        'todo-item__input--disabled': !isEditable,
+        'todo-item__input--complete': !isEditable && todo.done
+      }"
+      type="text"
+      name="description"
+      placeholder="Add description..."
+      [(ngModel)]="description"
+      [disabled]="!isEditable"
+      (keydown.enter)="saveDescription()"
+    >
+  </div>
+  <button
+    *ngIf="!isEditable"
+    class="btn btn-sm extra-button"
+    (click)="editDescription()"
+    type="button"
+    title="Edit description"
+  >
+    <fa name="pencil"></fa>
+  </button>
+  <button
+    *ngIf="isEditable"
+    class="btn btn-sm extra-button"
+    (click)="saveDescription()"
+    type="button"
+    title="Save changes"
+  >
+    <fa name="check"></fa>
+  </button>
+  <button
+    class="btn btn-sm extra-button"
+    (click)="deleteTodo()"
+    type="button"
+    title="Delete item"
+  >
+    <fa name="trash"></fa>
+  </button>
+</form>

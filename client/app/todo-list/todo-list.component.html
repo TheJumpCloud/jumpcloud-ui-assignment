@@ -1,0 +1,30 @@
+<app-add-todo-item
+  (created)="addTodo($event)"
+></app-add-todo-item>
+
+<ul
+  *ngIf="!finishedLoading"
+  class="list-group"
+>
+  <li class="list-group-item">
+    <em class="text-secondary">
+      Loading...
+    </em>
+  </li>
+</ul>
+<ul
+  *ngIf="finishedLoading"
+  class="list-group"
+>
+  <li
+    *ngFor="let todo of todos"
+    class="list-group-item todo-item"
+    [ngClass]="{'todo-item--done': todo.done}"
+  >
+    <app-todo-item
+      [todo]="todo"
+      (update)="updateTodo($event)"
+      (delete)="deleteTodo($event)"
+    ></app-todo-item>
+  </li>
+</ul>
