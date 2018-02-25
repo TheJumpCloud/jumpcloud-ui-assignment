@@ -1,17 +1,6 @@
-/* You can add global styles to this file, and also import other style files */
 @import '~bootstrap-css-only';
 
 html,
 body {
   background-color: #f5f5f5;
-}
-
-/* Animation used repeatedly. */
-@keyframes fade-in {
-  0%   { opacity: 0; }
-  100% { opacity: 1; }
-}
-
-input::placeholder {
-  color: #bbb;
 }
