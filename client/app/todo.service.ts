@@ -20,7 +20,7 @@ export class TodoService {
     return this.http.put<Todo>(
       this.apiBaseUrl + `${todo.id}/`,
       {
-        "done": done
+        'done': done
       }
     ).toPromise();
   }
@@ -29,7 +29,7 @@ export class TodoService {
     return this.http.put<Todo>(
       this.apiBaseUrl + `${todo.id}/`,
       {
-        "description": description
+        'description': description
       }
     ).toPromise();
   }
@@ -42,7 +42,7 @@ export class TodoService {
     return this.http.post<Todo>(
       this.apiBaseUrl,
       {
-        "description": description
+        'description': description
       }
     ).toPromise();
   }

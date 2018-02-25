@@ -18,9 +18,9 @@ export class TodoItemComponent implements OnInit {
   description = '';
 
   constructor(
-      private todoService: TodoService,
-      private renderer: Renderer
-  ) { }
+    private renderer: Renderer,
+    private todoService: TodoService
+  ) {}
 
   ngOnInit() {
     this.description = this.todo.description;
@@ -30,13 +30,16 @@ export class TodoItemComponent implements OnInit {
     this.isUpdating = true;
     this.todoService.setTodoDone(this.todo, !this.todo.done).then((newTodo) => {
       this.update.emit(newTodo);
+    }).catch((error) => {
+      alert(`Unable to save item. Please try again.\n${error}`);
+    }).finally(() => {
       this.isUpdating = false;
     });
   }
 
   editDescription = () => {
     this.isEditable = true;
-    // Wait until input becomes editable again before highlighting.
+    // Wait until input becomes enabled again before highlighting.
     setTimeout(() => {
       this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
     }, 5);
@@ -47,9 +50,11 @@ export class TodoItemComponent implements OnInit {
     this.isUpdating = true;
     this.todoService.setTodoDescription(this.todo, this.description).then((newTodo) => {
       this.update.emit(newTodo);
-      this.isUpdating = false;
     }).catch((error) => {
+      alert(`Unable to save item. Please try again.\n${error}`);
       this.isEditable = true;
+    }).finally(() => {
+      this.isUpdating = false;
     });
   }
 
@@ -57,6 +62,9 @@ export class TodoItemComponent implements OnInit {
     this.isUpdating = true;
     this.todoService.deleteTodo(this.todo).then(() => {
       this.delete.emit(this.todo);
+    }).catch((error) => {
+      alert(`Unable to delete item. Please try again.\n${error}`);
+      this.isUpdating = false;
     });
   }
 }

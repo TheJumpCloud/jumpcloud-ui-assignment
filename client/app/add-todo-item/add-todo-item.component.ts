@@ -24,23 +24,16 @@ export class AddTodoItemComponent {
       return;
     }
 
-    let reenableInput = () => {
+    this.isEditable = false;
+    this.todoService.createTodo(this.description).then((newTodo) => {
+      this.created.emit(newTodo);
+      this.description = '';
+    }).finally(() => {
       this.isEditable = true;
       // Need to wait a digest cycle before trying to re-focus input.
       setTimeout(() => {
         this.renderer.invokeElementMethod(this.input.nativeElement, 'focus');
       }, 5);
-    };
-
-    this.isEditable = false;
-    this.todoService.createTodo(this.description).then((newTodo) => {
-      this.created.emit(newTodo);
-      this.description = '';
-      reenableInput();
-    }).catch((error) => {
-      reenableInput();
     });
-    // Would use finally here, but it doens't seem to be supported with
-    // this version of Promise<>.
   }
 }
