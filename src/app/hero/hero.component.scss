@@ -1,0 +1,68 @@
+/* jumbotron media  */ 
+
+@media (max-width: 575.98px) { 
+    .jumbotron {
+        height: 270px
+    }
+ }
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767.98px) { 
+    .jumbotron {
+        height: 380px;
+    }
+ }
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991.98px) {     
+    .jumbotron {
+    height: 515px;
+} }
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199.98px) { 
+    .jumbotron {
+        height: 720px;
+    }
+ }
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { 
+    .jumbotron {
+        height: 950px;
+    }
+ }
+
+
+/* The hero image */
+.jumbotron {
+    /* The image used */
+    background-image: url("../../assets/images/sanders-grandjunction_nov2017.jpg");
+    background-color: rgb(61, 65, 73);
+    width: 100%;
+
+    margin-bottom: 1rem !important;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-blend-mode: overlay;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    transition: .5s!important;
+}
+
+
+.jumbotron:hover {
+    background-color: transparent;
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
