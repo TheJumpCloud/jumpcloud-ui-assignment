@@ -3,7 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { TodoService } from '../services/todo.service';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
     selector: 'todo-item-form',

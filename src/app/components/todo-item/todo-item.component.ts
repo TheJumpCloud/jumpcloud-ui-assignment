@@ -2,8 +2,8 @@ import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Todo } from '../services/todo';
-import { TodoService } from '../services/todo.service';
+import { Todo } from '../../services/todo';
+import { TodoService } from '../../services/todo.service';
 
 @Component({
   selector: 'todo-item',

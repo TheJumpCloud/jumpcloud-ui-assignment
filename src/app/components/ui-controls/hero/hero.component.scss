@@ -21,14 +21,15 @@
 // Large devices (desktops, 992px and up)
 @media (min-width: 992px) and (max-width: 1199.98px) { 
     .jumbotron {
-        height: 720px;
+        height: 620px;
     }
  }
 
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { 
     .jumbotron {
-        height: 950px;
+        min-height: 680px;
+        max-height: 900px;
     }
  }
 
@@ -36,7 +37,7 @@
 /* The hero image */
 .jumbotron {
     /* The image used */
-    background-image: url("../../assets/images/sanders-grandjunction_nov2017.jpg");
+    background-image: url("../../../../assets/images/sanders-grandjunction_nov2017.jpg");
     background-color: rgb(61, 65, 73);
     width: 100%;
 
