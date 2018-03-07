@@ -1,0 +1,9 @@
+<div [@confirm] *ngIf="visible" class="confirm active">
+  <a href="#close" class="confirm-overlay" aria-label="Close" (click)="close()"></a>
+  <div class="modal-content">
+    <ng-content></ng-content>
+  </div>
+</div>
+<div *ngIf="visible" class="overlay" (click)="close()"></div>
+
+

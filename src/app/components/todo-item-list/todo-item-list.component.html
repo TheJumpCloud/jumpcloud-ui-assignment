@@ -1,0 +1,15 @@
+
+<div class="container bg-light pt-5 pb-5">
+    <div class="row bottom-space">
+        <div *ngFor="let todo of todos" class="col-lg-4 col-sm-6 col-xs-12 my-3">
+            <div class="card px-3 py-3">
+              <h5 class="card-title">{{todo.description}}</h5>
+              <p class="card-text">id: {{todo.id}}</p>
+              <p class="card-text">Done: {{todo.done}}</p>
+              <div class="text-right">
+                <a class="btn btn-sm btn-primary" routerLink="/todo-item/{{todo.id}}">Edit this Todo</a>
+              </div>
+            </div>
+        </div>
+      </div>
+</div>
