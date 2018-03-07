@@ -1,6 +1,5 @@
 import { Component } from '@angular/core'; 
 import { FormBuilder, Validators } from '@angular/forms';
-// import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 
 import { TodoService } from '../../services/todo.service';
@@ -24,7 +23,6 @@ export class TodoItemFormComponent {
     constructor(
         private formBuilder: FormBuilder, 
         private todoItemService: TodoService,
-        // private router: Router,
         private location: Location) {
     }
 
