@@ -62,7 +62,7 @@ the following:
 4. Delete a user.
 5. Be intuitive and have a clean user experience.
 
-We ask that you utilize the Vue application generator, [Vue CLI](https://cli.vuejs.org/), to emulate
+We ask that you utilize the Vue application generator, [create-vue](https://github.com/vuejs/create-vue), to emulate
 our existing stack. This application will require forward-thinking architecture for future expansion and
 growth. Additionally, the application needs to be built with production quality code that is maintainable
 and scalable, with configurable build tooling. And feel free to use any modern CSS framework if you want
