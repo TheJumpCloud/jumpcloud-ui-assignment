@@ -62,9 +62,11 @@ the following:
 4. Delete a user.
 5. Be intuitive and have a clean user experience.
 
-Feel free to use any modern application generator such as [Angular CLI](https://cli.angular.io/),
-[Create React App](https://facebook.github.io/create-react-app/), [Vue CLI](https://cli.vuejs.org/), etc.
-And feel free to use any modern CSS framework if you want to.
+We ask that you utilize the Vue application generator, [Vue CLI](https://cli.vuejs.org/), to emulate
+our existing stack. This application will require forward-thinking architecture for future expansion and
+growth. Additionally, the application needs to be built with production quality code that is maintainable
+and scalable, with configurable build tooling. And feel free to use any modern CSS framework if you want
+to.
 
 When you're done, please send us a link to your repo so we can clone it locally and test out
 your UI.
