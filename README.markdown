@@ -27,7 +27,7 @@ UI. But before you begin you'll set up just a few more things:
    ![API Settings](api-settings-dropdown.png)
 2. Copy your API key. You will be passing it to the server side application we've set up for you in this repo.
    ![API Key](api-key.png)
-3. Clone this repo, run `npm install` to install all required packages, copy your API Key into the `.env` file.
+3. Clone this repo, run `npm install` to install all required packages, and copy your API Key into the `.env` file.
 4. Start the proxy service using `docker-compose up`.
 5. The web server is a simple express based app that proxies requests from `http://localhost:8005/api` to
    `https://console.jumpcloud.com/api` so that you can build a simple single page CRUD application
