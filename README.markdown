@@ -27,12 +27,12 @@ UI. But before you begin you'll set up just a few more things:
    ![API Settings](api-settings-dropdown.png)
 2. Copy your API key. You will be passing it to the server side application we've set up for you in this repo.
    ![API Key](api-key.png)
-3. Clone this repo, run `npm install` to install all required packages, create a `.env` file with the key/value
-   pair `API_KEY=YOUR_API_KEY` and then run `npm start` to start the web server on port 8005.
-4. The web server is a simple express based app that proxies requests from `http://localhost:8005/api` to
+3. Clone this repo, run `npm install` to install all required packages, and copy your API Key into the `.env` file.
+4. Start the proxy service using `docker-compose up`.
+5. The web server is a simple express based app that proxies requests from `http://localhost:8005/api` to
    `https://console.jumpcloud.com/api` so that you can build a simple single page CRUD application
    using our [system users API](https://docs.jumpcloud.com/1.0/systemusers).
-5. You will be using the following [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
+6. You will be using the following [RESTful](https://en.wikipedia.org/wiki/Representational_state_transfer)
    API requests:
    ```http
    GET /api/systemusers
@@ -41,11 +41,11 @@ UI. But before you begin you'll set up just a few more things:
    PUT /api/systemusers/{id}
    DELETE /api/systemusers/{id}
    ```
-6. Go ahead and try it out using [`curl`](https://curl.haxx.se/) from the command line.
+7. Go ahead and try it out using [`curl`](https://curl.haxx.se/) from the command line.
    ```shell
    curl -s -v 'http://localhost:8005/api/systemusers'
    ```
-7. Now using the API we've provided, and your free account at [jumpcloud.com](http://www.jumpcloud.com),
+8. Now using the API we've provided, and your free account at [jumpcloud.com](http://www.jumpcloud.com),
    you're ready to build a simple single page application that allows CRUD operations on system users in
    your JumpCloud organization.
 
@@ -62,9 +62,11 @@ the following:
 4. Delete a user.
 5. Be intuitive and have a clean user experience.
 
-Feel free to use any modern application generator such as [Angular CLI](https://cli.angular.io/),
-[Create React App](https://facebook.github.io/create-react-app/), [Vue CLI](https://cli.vuejs.org/), etc.
-And feel free to use any modern CSS framework if you want to.
+We ask that you utilize the Vue application generator, [create-vue](https://github.com/vuejs/create-vue), to emulate
+our existing stack. This application will require forward-thinking architecture for future expansion and
+growth. Additionally, the application needs to be built with production quality code that is maintainable
+and scalable, with configurable build tooling. And feel free to use any modern CSS framework if you want
+to.
 
 When you're done, please send us a link to your repo so we can clone it locally and test out
 your UI.
