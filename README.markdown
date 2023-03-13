@@ -3,9 +3,9 @@
 ## Overview
 
 To evaluate UI engineers, JumpCloud would like you to build a simple single page application
-using your choice of a modern UI framework (e.g. Angular, React, Vue) that uses our public
-API to implement standard [CRUD](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
-operations on users managed by a JumpCloud organization.
+using Vue that uses our public API to implement standard [CRUD]
+(https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on users managed 
+by a JumpCloud organization.
 
 ## Instructions
 
